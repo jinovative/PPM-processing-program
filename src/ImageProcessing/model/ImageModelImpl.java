@@ -1,11 +1,19 @@
 package ImageProcessing.model;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
-public class ImageModelImpl implements ImageModel{
+/**
+ * `ImageModelImpl` implements the `ImageModel` interface.
+ * It stores the image data as a 2D array of `Pixel` objects and performs image processing tasks.
+ */
+public class ImageModelImpl implements ImageModel {
   private Pixel[][] pixels;
 
   @Override
@@ -76,11 +84,13 @@ public class ImageModelImpl implements ImageModel{
       String widthHeight;
       do {
         widthHeight = br.readLine();
-      } while (widthHeight.startsWith("#")); // Skip comment lines
+      }
+      while (widthHeight.startsWith("#")); // Skip comment lines
       String maxColorValue;
       do {
         maxColorValue = br.readLine();
-      } while (maxColorValue.startsWith("#")); // Skip comment lines
+      }
+      while (maxColorValue.startsWith("#")); // Skip comment lines
 
       // Extract width, height, and maximum color value
       String[] dimensions = widthHeight.split(" ");
@@ -154,7 +164,8 @@ public class ImageModelImpl implements ImageModel{
     // Value is the maximum of the three color channels.
     for (int i = 0; i < this.pixels.length; i++) {
       for (int j = 0; j < this.pixels[i].length; j++) {
-        int value = Math.max(Math.max(this.pixels[i][j].getRed(), this.pixels[i][j].getGreen()), this.pixels[i][j].getBlue());
+        int value = Math.max(Math.max(this.pixels[i][j].getRed(),
+                this.pixels[i][j].getGreen()), this.pixels[i][j].getBlue());
         this.pixels[i][j] = new Pixel(value, value, value);
       }
     }
@@ -165,7 +176,8 @@ public class ImageModelImpl implements ImageModel{
     // Intensity is the average of the three color channels.
     for (int i = 0; i < this.pixels.length; i++) {
       for (int j = 0; j < this.pixels[i].length; j++) {
-        int intensity = (this.pixels[i][j].getRed() + this.pixels[i][j].getGreen() + this.pixels[i][j].getBlue()) / 3;
+        int intensity = (this.pixels[i][j].getRed()
+                + this.pixels[i][j].getGreen() + this.pixels[i][j].getBlue()) / 3;
         this.pixels[i][j] = new Pixel(intensity, intensity, intensity);
       }
     }

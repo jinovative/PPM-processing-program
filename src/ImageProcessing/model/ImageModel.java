@@ -4,10 +4,8 @@ package ImageProcessing.model;
 import java.io.FileNotFoundException;
 
 /**
- * The ImageModel interface represents the model component in the Model-View-Controller (MVC)
- * design pattern. This interface contains methods for manipulating images, such as loading
- * an image from a file, modifying the brightness of an image, extracting color channels from
- * an image, and saving an image to a file.
+ * The ImageModel interface represents the model component in the Model-View-Controller.
+ * This interface contains methods for manipulating images.
  */
 public interface ImageModel {
   /**
@@ -33,17 +31,17 @@ public interface ImageModel {
   void extractBlueChannel();
 
   /**
-   * Extract the value component from the image. Value is the maximum of the three color channels.
+   * Extract the value component from the image.
    */
   void extractValue();
 
   /**
-   * Extract the intensity component from the image. Intensity is the average of the three color channels.
+   * Extract the intensity component from the image.
    */
   void extractIntensity();
 
   /**
-   * Extract the luma component from the image. Luma is a weighted average of the three color channels.
+   * Extract the luma component from the image.
    */
   void extractLuma();
 
@@ -55,7 +53,7 @@ public interface ImageModel {
   void convertToGreyscale(String method);
 
   /**
-   * Modify the brightness of the image. A positive amount brightens the image, a negative amount darkens it.
+   * Modify the brightness of the image.
    *
    * @param amount the amount to adjust the brightness by.
    */

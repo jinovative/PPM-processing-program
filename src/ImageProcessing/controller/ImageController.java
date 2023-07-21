@@ -4,11 +4,8 @@ package ImageProcessing.controller;
 import java.io.FileNotFoundException;
 
 /**
- * The ImageController interface represents the controller component in the Model-View-Controller (MVC)
- * design pattern. It defines the operations that can be performed on the ImageModel. These operations
- * include loading an image from a file, extracting color channels from an image, modifying the brightness
- * of an image, and saving an image to a file. It also includes a method to overwrite an existing image
- * with another image.
+ * The ImageController interface represents the controller component in the Model-View-Controller.
+ * It defines the operations that can be performed on the ImageModel.
  */
 public interface ImageController {
   /**
@@ -68,6 +65,15 @@ public interface ImageController {
    * Flips the current image horizontally.
    */
   void flipImage();
+
+  /**
+   * Saves the pixel data of the current image as a text file.
+   * Each pixel is represented by its red, green, and blue components separated by commas,
+   * and each row of pixels is written on a new line.
+   *
+   * @param filename the name of the text file to save the pixel data to
+   */
+  void savePixelsAsText(String filename);
 
   /**
    * Save the current image to an ASCII PPM file.

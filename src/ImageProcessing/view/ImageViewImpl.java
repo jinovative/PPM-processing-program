@@ -2,7 +2,11 @@ package ImageProcessing.view;
 
 import ImageProcessing.model.Pixel;
 
-public class ImageViewImpl implements ImageView{
+/**
+ * `ImageViewImpl` class implements `ImageView` interface.
+ * It's used for displaying image processing results or errors to the user.
+ */
+public class ImageViewImpl implements ImageView {
 
   @Override
   public void displayUI() {
@@ -12,15 +16,7 @@ public class ImageViewImpl implements ImageView{
   @Override
   public void updateImage(Pixel[][] pixels) {
     System.out.println("Image updated with size: " + pixels.length + "x" + pixels[0].length);
-    System.out.println("First few pixels:");
-    for (int i = 0; i < Math.min(5, pixels.length); i++) {
-      for (int j = 0; j < Math.min(5, pixels[i].length); j++) {
-        System.out.println("Pixel at (" + i + "," + j + "): "
-                + pixels[i][j].getRed() + ","
-                + pixels[i][j].getGreen() + ","
-                + pixels[i][j].getBlue());
-      }
-    }
+    System.out.println("Whole Pixels info : Option 0");
   }
 
   @Override
